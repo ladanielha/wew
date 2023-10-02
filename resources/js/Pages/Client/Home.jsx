@@ -13,8 +13,8 @@ export default function Home(props) {
         <div className=" min-h-screen bg-slate-50">
             <Head title="Wisata Halal Cirebon" />
             <Navbar user={props.auth.user} />
-            <Hero />
-            
+            <Hero />    
+                 
             <div className="flex justify-center flex-col lg:flex-row lg:flex-wrap lg:items-stretch items-center gap-4 px-10 py-6">
                 <Placecard places={props.places.data}/>
             </div>

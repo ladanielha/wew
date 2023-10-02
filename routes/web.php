@@ -28,6 +28,7 @@ Route::post('/hitungbobot', [ HomeController::class, 'hitungbobot'])->name('hitu
 Route::get('/hasilrekomendasi', [ HomeController::class, 'hasilrekomendasi'  ])->name('hasilrekomendasi');
 
 
+
 Route::get('/guest', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
