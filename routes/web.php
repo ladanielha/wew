@@ -26,6 +26,7 @@ Route::get('/erick', [ HomeController::class, 'erick'  ])->name('erick');
 Route::get('/rekomendasiwisata', [ HomeController::class, 'formreko'])->name('formreko.wisata');
 Route::post('/hitungbobot', [ HomeController::class, 'hitungbobot'])->name('hitungbobot');
 Route::get('/hasilrekomendasi', [ HomeController::class, 'hasilrekomendasi'  ])->name('hasilrekomendasi');
+Route::get('/wisata/detail/{wisata_id}', [WisataController::class, 'detail'])->name('detail.wisata');
 
 
 
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/listwisata', [WisataController::class,'index'])->name('admin.wisata');
     Route::get('/createwisata', [WisataController::class,'create'])->name('create.wisata');
     Route::post('/storewisata', [WisataController::class, 'store'])->name('store.wisata');
+    Route::post('/setorwisata', [WisataController::class, 'setor'])->name('setor.wisata');
     Route::get('/wisata/edit', [WisataController::class, 'edit'])->name('edit.wisata');
     Route::post('/wisata/update', [WisataController::class, 'update'])->name('update.wisata');
     Route::post('/wisata/delete', [WisataController::class, 'destroy'])->name('delete.wisata');

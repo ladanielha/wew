@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Resources\PlacesCollection;
 use App\Models\Nilaialt;
@@ -32,7 +31,7 @@ class WisataController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Wisata/create');
+        return Inertia::render('Admin/Wisata/kreate');
     }
 
     /**
@@ -41,47 +40,57 @@ class WisataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
 
-       //set validation
-       $request->validate([
-        'namatempat' => 'required', 
-        'jeniswisata' => 'required',
-        'alamat' => 'required', 
-        'harga' => 'required', 
-        'jambuka' => 'required', 
-        'jamtutup' => 'required',
-        'desc'  => 'required',
-        'gambar'  => 'required',
-        'link' => 'required',
-        ]);
+     public function store(Request $request)
+     {
+ 
+        //set validation
+        $request->validate([
+         'namatempat' => 'required', 
+         'jeniswisata' => 'required',
+         'alamat' => 'required', 
+         'harga' => 'required', 
+         'jambuka' => 'required', 
+         'jamtutup' => 'required',
+         'desc'  => 'required',
+         'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+         'link' => 'required',
+         ]);
 
-        //create wisata
-        $places = Places::create([
-            'namatempat'     => $request->namatempat,
-            'jeniswisata'     => $request->jeniswisata,
-            'alamat'   => $request->alamat,
-            'harga'   => $request->harga,
-            'jambuka'   => $request->jambuka,
-            'jamtutup'   => $request->jamtutup,
-            'desc'   => $request->desc,
-            'gambar'   => $request->gambar,
-            'link'   => $request->link,
-            
+         if ($request->hasFile('gambar')) {
+            $gambar = $request->file('gambar');
+            $gambarName = time() . '.' . $gambar->getClientOriginalExtension();
+            $gambar->move(public_path('uploads'), $gambarName);
+        }
+ 
+         //create wisata
+         $places = new Places([
+            'namatempat' => $request->input('namatempat'),
+            'jeniswisata' => $request->input('jeniswisata'),
+            'alamat' => $request->input('alamat'),
+            'harga' => $request->input('harga'),
+            'jambuka' => $request->input('jambuka'),
+            'jamtutup' => $request->input('jamtutup'),
+            'desc' => $request->input('desc'),
+            'gambar' => $gambarName, // Store the image path in the database
+            'link' => $request->input('link'),
         ]);
-        Nilaialt::create([
-            'wisata_id' => $places->wisata_id, 
-            'rate_fasilitas'=> "0.25",
-            'rate_pelayanan'=> "0.25",
-            'rate_ramahkeluarga'=> "0.25",
-            'rate_akomodasi'=> "0.25",
-            
-        ]);
+    
+        $places->save();
 
-        //redirect
-        return redirect()->route('admin.wisata')->with('message', 'Data Berhasil Disimpan!');        
-    }
+         Nilaialt::create([
+             'wisata_id' => $places->wisata_id, 
+             'rate_fasilitas'=> "0.25",
+             'rate_pelayanan'=> "0.25",
+             'rate_ramahkeluarga'=> "0.25",
+             'rate_akomodasi'=> "0.25",
+             
+         ]);
+ 
+         //redirect
+         return redirect()->route('admin.wisata')->with('message', 'Data Berhasil Disimpan!');        
+     }
+
 
     /**
      * Display the specified resource.
@@ -89,10 +98,12 @@ class WisataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Places $places)
+    public function detail($id)
     {
-        //
-      
+        $place = Places::find($id);
+        return Inertia::render('Client/Wisatadetail', [
+            'places' => $place
+        ]);
     }
 
     /**

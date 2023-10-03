@@ -26,7 +26,7 @@ const isTablewisata = (places) => {
                                 <div className="flex items-center space-x-3">
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/a8/ef/bc/kompleks-goa-peteng-salah.jpg?w=500&h=400&s=1" alt="Avatar Tailwind CSS Component" />
+                                            <img src={data.gambar} alt="Wisata Cirebon" />
                                         </div>
                                     </div>
                                 </div>

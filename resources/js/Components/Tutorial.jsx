@@ -67,6 +67,7 @@ const Tutorial = ({ }) => {
             <div className="font-bold">Hasil 3</div>
             <div className="mb-4 mt-2 md:hidden">
             </div>
+            <div className="">Untuk mendapatkan nilai yang kosisten dan valid masukan nilai kriteria yang di anggap paling penting dan memasukan angka 1 jika krieria tersebut tidak sesuai dengan keinginan kamu  </div>
             <div className="mb-10">Bila nilai yang di masukan tidak konsisten maka masukan nilai kembali </div>
           </div>
         </div>

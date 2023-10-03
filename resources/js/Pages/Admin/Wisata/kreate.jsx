@@ -19,18 +19,19 @@ export default function Create(props, errors) {
     //function "storePost"
     const storeWisata = async (e) => {
         e.preventDefault();
-
-        Inertia.post('/storewisata', {
-            namatempat: namatempat,
-            jeniswisata: jeniswisata,
-            alamat: alamat,
-            harga: harga,
-            jambuka: jambuka,
-            jamtutup: jamtutup,
-            desc: desc,
-            gambar: gambar,
-            link: link,
-        });
+    
+        const formData = new FormData();
+        formData.append('namatempat', namatempat);
+        formData.append('jeniswisata', jeniswisata);
+        formData.append('alamat', alamat);
+        formData.append('harga', harga);
+        formData.append('jambuka', jambuka);
+        formData.append('jamtutup', jamtutup);
+        formData.append('desc', desc);
+        formData.append('gambar', gambar);
+        formData.append('link', link);
+    
+        Inertia.post('/storewisata', formData);
     }
     //console.log("cekdarihalcreate", props)
 
@@ -137,8 +138,8 @@ export default function Create(props, errors) {
                                         )}
 
                                         <div className="mb-3">
-                                            <label className="form-label fw-bold">Gambar</label>
-                                            <input type="file" className="form-control" value={gambar} onChange={(e) => setGambar(e.target.value)} />
+                                            <label className="form-label fw-bold">Gambar</label>                                            
+                                            <input type="file" className="form-control" onChange={(e) => setGambar(e.target.files[0])} />
                                         </div>
                                         {props.errors.gambar && (
                                             <div className="alert alert-error">
