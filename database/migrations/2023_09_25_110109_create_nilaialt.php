@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('nilaialt', function (Blueprint $table) {
+            
             $table->id('nilaialt_id');
-            $table->foreignId('wisata_id')->constrained();
+            $table->unsignedBigInteger('wisata_id');
+            $table->foreign('wisata_id')->references( columns:'wisata_id')->on( table: 'datawisata');
             $table->decimal('rate_fasilitas');
             $table->decimal('rate_pelayanan');
             $table->decimal('rate_ramahkeluarga');
