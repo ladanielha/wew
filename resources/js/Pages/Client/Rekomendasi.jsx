@@ -2,7 +2,6 @@ import React from "react";
 import { Head } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
-import Hero from "@/Components/Hero";
 import Formbobot from "@/Components/Formbobot";
 import Tutorial from "@/Components/Tutorial";
 

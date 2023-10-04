@@ -1,7 +1,7 @@
 import Sidebar from '@/Components/Admin/Sidebar';
 import Navbaradmin from '@/Components/Navbaradmin';
-import { Inertia } from '@inertiajs/inertia';
-import { Head , useForm} from '@inertiajs/react';
+import { router } from '@inertiajs/react';
+import { Head , router, useForm} from '@inertiajs/react';
 import { useState } from 'react';
 
 export default function Create(props, errors) {
@@ -31,7 +31,7 @@ export default function Create(props, errors) {
         formData.append('gambar', gambar);
         formData.append('link', link);
     
-        Inertia.post('/storewisata', formData);
+        router.post('/storewisata', formData);
     }
     //console.log("cekdarihalcreate", props)
 

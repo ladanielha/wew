@@ -1,9 +1,8 @@
 import Sidebar from '@/Components/Admin/Sidebar';
 import Navbaradmin from '@/Components/Navbaradmin';
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/react';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
-import Map from "react-map-gl/maplibre";
 
 
 
@@ -22,7 +21,7 @@ export default function Edit(props, errors) {
     const updateWisata = async (e) => {
         e.preventDefault();
 
-        Inertia.post(`/wisata/update`, {
+        router.post(`/wisata/update`, {
             wisata_id: props.places.wisata_id,
             namatempat: namatempat,
             jeniswisata: jeniswisata,

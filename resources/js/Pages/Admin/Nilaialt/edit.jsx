@@ -1,6 +1,6 @@
 import Sidebar from '@/Components/Admin/Sidebar';
 import Navbaradmin from '@/Components/Navbaradmin';
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/react';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ export default function Edit(props, errors) {
     const updatenilai = async (e) => {
         e.preventDefault();
 
-        Inertia.post(`/wisata/update`, {
+        router.post(`/wisata/update`, {
             id: props.places.id,
             namatempat: namatempat,
             alamat: alamat,

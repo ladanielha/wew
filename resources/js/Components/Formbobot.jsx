@@ -1,4 +1,4 @@
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/react';
 import React, { useState } from 'react';
 
 
@@ -17,7 +17,7 @@ const Formbobot = ({ props }) => {
         e.preventDefault();
 
 
-        Inertia.post('/hitungbobot', {
+        router.post('/hitungbobot', {
             fasilitas_pelayanan: fasilitas_pelayanan,
             fasilitas_ramah: fasilitas_ramah,
             fasilitas_akomodasi: fasilitas_akomodasi,
