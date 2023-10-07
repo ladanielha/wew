@@ -1,5 +1,5 @@
 import React from "react";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 
@@ -46,16 +46,19 @@ export default function Wisatadetail(props) {
                                 {props.places.jeniswisata}
                             </div>
                             <p className="mb-6 text-neutral-500 dark:text-neutral-900">
-                                <small>Jam Buka : 0{props.places.jambuka}:00 AM - {props.places.jamtutup}:00 PM
-                                    </small>
+                                Jam Buka : {props.places.jambuka}:00 AM - {props.places.jamtutup}:00 PM
+                                    
                             </p>
                             <p className="mb-6 text-neutral-500 dark:text-neutral-900">
-                                <small>Harga Tiket : {props.places.harga}
-                                    </small>
+                                Harga Tiket : {props.places.harga}                            
                             </p>
-                            <p className="text-neutral-500 dark:text-neutral-900">
+                            <p className="mb-6 text-neutral-500 dark:text-neutral-900">
+                                Lokasi : {props.places.alamat}
+                            </p>
+                            <p className="mb-10 text-neutral-500 dark:text-neutral-900">
                                 {props.places.desc}
                             </p>
+                            <a href={props.places.link} className="btn btn-primary">Lokasi Google Maps</a>
                         </div>
                     </div>
                     

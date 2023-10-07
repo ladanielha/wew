@@ -29,7 +29,7 @@ const Navbar = ({ user }) => {
                       Dashboard Admin
                     </Link>
                   </li>
-                  <li><Link href={route("profile.edit")} as="button" >Profile</Link></li>
+                  {/* <li><Link href={route("profile.edit")} as="button" >Profile</Link></li> */}
                   <li><Link href={route("logout")} as="button" method="POST">Logout</Link></li>
                 </>
               }

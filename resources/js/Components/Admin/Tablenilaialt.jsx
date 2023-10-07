@@ -26,7 +26,7 @@ const isTablenilaialt = (nilaialts) => {
                                                 {++i}
                                             </td>
                                             <td>
-                                                {data.wisata_id}
+                                                {data.namatempat}
                                             </td>
                                             <td>{data.rate_fasilitas}</td>
                                             <td>{data.rate_pelayanan}</td>

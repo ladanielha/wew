@@ -4,16 +4,15 @@ import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import Placecard from "@/Components/Recomendcard";
 export default function Hrekomendasi(props) {
-
-    console.log("h rekomendasi :", props)
+    //console.log(props)
     return (
         <div className="min-h-screen bg-slate-50">
             <Head title="Wisata Halal Cirebon" />
             <Navbar user={props.auth.user} />
-            <section className='py-10 md:py-16'>
+            <section className='py-10 md:py-16 bg-primary'>
                 <div className='container'>
                     <div className='text-center'>
-                        <h2 className='text-3xl sm:text-5xl font-bold mb-4'>Hasil Rekomendasi </h2>
+                        <h2 className='text-3xl sm:text-5xl font-bold mb-4 text-white'>Hasil Rekomendasi </h2>
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10'>
                     </div>

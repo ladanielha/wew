@@ -46,3 +46,4 @@ class Places extends Model
         );
     }
 }
+

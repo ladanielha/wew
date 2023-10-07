@@ -31,122 +31,217 @@ const Formbobot = ({ props }) => {
     };
 
     return (
+        <>
+            <form onSubmit={handleSubmit} >
+                <div className="flex flex-col space-y-2 p-2">
+                    <div className="flex items-center justify-between text-center text-gray-600 ">
+                        <span className="flex-1">Lebih Penting Fasilitas</span>
+                        <span className="flex-1">Lebih Penting Pelayanan</span>
+                    </div>
 
-        <form onSubmit={handleSubmit} >
-            <div className="flex flex-col space-y-2 p-2 ">
-                <div>Fasilitas ----------------------------------------------------------------------- Pelayanan</div>
-                <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotfp(e.target.value)} />
-                <ul className="flex justify-between w-full px-[10px]">
-                    <li className="flex justify-center relative"><span className="absolute">8</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">7</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">6</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">6</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">7</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">8</span></li>
-                </ul>
-                <h1>{fasilitas_pelayanan}</h1>
-                {props.errors.fasilitas_pelayanan && (
-                    <span className="bg-danger-100">{props.errors.fasilitas_pelayanan}</span>
-                )}
-            </div>
+                    <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotfp(e.target.value)} />
+                    <ul className="flex justify-between w-full px-[10px]">
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                    </ul>
+                    
+                    {props.errors.fasilitas_pelayanan && (
+                        <div className="alert alert-error py-3">
+                        <span className="bg-danger-100">{props.errors.fasilitas_pelayanan}</span>
+                        </div>
+                    )}
+                </div>
 
-            <div className="flex flex-col space-y-2 p-2 ">
-                <div>Fasilitas ------------------------------------------------------------------ Ramah keluarga</div>
-                <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotfr(e.target.value)} />
-                <ul className="flex justify-between w-full px-[10px]">
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                </ul>
-                <h1>{fasilitas_ramah}</h1>
-            </div>
-            <div className="flex flex-col space-y-2 p-2 ">
-                <div>Fasilitas ------------------------------------------------------------------------Akomodasi</div>
-                <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotfa(e.target.value)} />
-                <ul className="flex justify-between w-full px-[10px]">
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                </ul>
-                <h1>{fasilitas_akomodasi}</h1>
-            </div>
-            <div className="flex flex-col space-y-2 p-2 ">
-                <div>Pelayanan ----------------------------------------------------------------- Ramah Keluarga</div>
-                <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotpr(e.target.value)} />
-                <ul className="flex justify-between w-full px-[10px]">
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                </ul>
-                <h1>{pelayanan_ramah}</h1>
-            </div>
-            <div className="flex flex-col space-y-2 p-2 ">
-                <div>Pelayanan --------------------------------------------------------------------- Akomodasi</div>
-                <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotpa(e.target.value)} />
-                <ul className="flex justify-between w-full px-[10px]">
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                </ul>
-                <h1>{pelayanan_akomodasi}</h1>
-            </div>
+                <div className="flex flex-col space-y-2 p-2 ">
+                    <div className="flex items-center justify-between text-center text-gray-600">
+                        <span className="flex-1">Lebih Penting Fasilitas</span>
+
+                        <span className="flex-1">Lebih Penting Ramah Keluarga</span>
+                    </div>
+
+                    <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotfr(e.target.value)} />
+                    <ul className="flex justify-between w-full px-[10px]">
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                    </ul>
+                                     {props.errors.fasilitas_ramah && (
+                        <div className="alert alert-error py-3">
+                        <span className="bg-danger-100">{props.errors.fasilitas_ramah}</span>
+                        </div>
+                    )}
+                </div>
+                <div className="flex flex-col space-y-2 p-2 ">
+                    <div className="flex items-center justify-between text-center text-gray-600 mb-3">
+                        <span className="flex-1">Lebih Penting Fasilitas</span>
+
+                        <span className="flex-1">Lebih Penting Akomodasi</span>
+                    </div>
+                    <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotfa(e.target.value)} />
+                    <ul className="flex justify-between w-full px-[10px]">
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                    </ul>
+                    
+                    {props.errors.fasilitas_akomodasi && (
+                        <div className="alert alert-error py-3">
+                        <span className="bg-danger-100">{props.errors.fasilitas_akomodasi}</span>
+                        </div>
+                    )}
+                </div>
+                <div className="flex flex-col space-y-2 p-2 ">
+                    <div className="flex items-center justify-between text-center text-gray-600 mb-3">
+                        <span className="flex-1">Lebih Penting Pelayanan</span>
+
+                        <span className="flex-1">Lebih Penting RamahKeluarga</span>
+                    </div>
+                    <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotpr(e.target.value)} />
+                    <ul className="flex justify-between w-full px-[10px]">
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                    </ul>
+                                     {props.errors.pelayanan_ramah && (
+                        <div className="alert alert-error py-3">
+                        <span className="bg-danger-100">{props.errors.pelayanan_ramah}</span>
+                        </div>
+                    )}
+                </div>
+                <div className="flex flex-col space-y-2 p-2 ">
+                    <div className="flex items-center justify-between text-center text-gray-600 mb-3">
+                        <span className="flex-1">Lebih Penting Pelayanan</span>
+
+                        <span className="flex-1">Lebih Penting Akomodasi</span>
+                    </div>
+
+                    <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotpa(e.target.value)} />
+                    <ul className="flex justify-between w-full px-[10px]">
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                    </ul>
+                    
+                    {props.errors.pelayanan_akomodasi && (
+                        <div className="alert alert-error py-3">
+                        <span className="bg-danger-100">{props.errors.pelayanan_akomodasi}</span>
+                        </div>
+                    )}
+                </div>
 
 
-            <div className="flex flex-col space-y-2 p-2 ">
-                <div>Ramah Keluarga --------------------------------------------------------------- Akomodasi</div>
-                <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotra(e.target.value)} />
-                <ul className="flex justify-between w-full px-[10px]">
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
-                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
-                </ul>
-                <h1>{ramah_akomodasi}</h1>
-            </div>
+                <div className="flex flex-col space-y-2 p-2 ">
+                    <div className="flex items-center justify-between text-center text-gray-600 mb-3">
+                        <span className="flex-1">Lebih Penting Ramah Keluarga</span>
+                        <span className="flex-1 text-white">------------------------------------------------------------------</span>
+                        <span className="flex-1">Lebih Penting Akomodasi</span>
 
-            <div className="py-6 w-full justify-center">
-                <button type="submit" className="btn btn-md btn-success "><i className="fa fa-save"></i> Simpan</button>
-            </div>
-        </form>
+                    </div>
 
+                    <input type="range" className="w-full" min="-8" max="8" step="1" defaultValue={0} onChange={e => setBobotra(e.target.value)} />
+                    <ul className="flex justify-between w-full px-[10px]">
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">7</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                        <li className="flex justify-center relative"><span className="absolute">9</span></li>
+                    </ul>
+                                     {props.errors.ramah_akomodasi && (
+                        <div className="alert alert-error py-3">
+                        <span className="bg-danger-100">{props.errors.ramah_akomodasi}</span>
+                        </div>
+                    )}
+                </div>
+
+                <div className="py-6 w-full flex justify-center">
+                    <button type="submit" className="btn btn-md btn-success "><i className="fa fa-save"></i> Simpan</button>
+                </div>
+            </form>
+
+        </>
     )
 }
 export default Formbobot

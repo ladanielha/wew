@@ -7,15 +7,17 @@ export default function Index(props) {
     console.log('cek ', props)
     return (
         <>
-        <Navbaradmin user={props.auth.user} />
+            <Navbaradmin user={props.auth.user} />
             <div className="min-h-screen bg-slate-50">
-                
+
                 <Head title="Admin Wisata" />
-                <Sidebar/>
+                <Sidebar />
 
                 <div className="py-12">
+                    <div className="md:3/12 lg:w-3/12 ">
+                    </div>
 
-                    <div className="max-w-7xl mx-auto sm:px-6 lg:px-56">
+                    <div className="max-w-7xl mx-auto md:7/12 lg:w-7/12 ">
                         <div className="btn-group btn-group-vertical lg:btn-group-horizontal left-0">
                             <Link href={route("create.wisata")} className="btn btn-primary">Tambah Data</Link>
                         </div>
@@ -29,9 +31,9 @@ export default function Index(props) {
 
                         <Tablewisata places={props.places.data} />
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
         </>

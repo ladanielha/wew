@@ -22,7 +22,6 @@ use Inertia\Inertia;
 
 Route::get('/', [ HomeController::class, 'index'  ]);
 Route::get('/wisata', [ HomeController::class, 'wisata'  ])->name('list.wisata');
-Route::get('/erick', [ HomeController::class, 'erick'  ])->name('erick');
 Route::get('/rekomendasiwisata', [ HomeController::class, 'formreko'])->name('formreko.wisata');
 Route::post('/hitungbobot', [ HomeController::class, 'hitungbobot'])->name('hitungbobot');
 Route::get('/hasilrekomendasi', [ HomeController::class, 'hasilrekomendasi'  ])->name('hasilrekomendasi');
@@ -36,6 +35,7 @@ Route::get('/guest', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        
     ]);
 });
 

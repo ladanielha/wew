@@ -29,10 +29,10 @@ export default function Rekomendasi(props) {
                 
             <Tutorial />
             </div>
-            <section className='py-10 md:py-16'>
+            <section className='py-10 md:py-16 bg-primary'>
                 <div className='container'>
                     <div className='text-center'>
-                        <h2 className='text-3xl sm:text-5xl font-bold mb-4'>Pilih Nilai Kepentingan </h2>
+                        <h2 className='text-3xl sm:text-5xl font-bold mb-4 text-white'>Pilih Nilai Kepentingan </h2>
                     </div>
 {/*                    
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 '>

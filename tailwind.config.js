@@ -21,24 +21,23 @@ module.exports = {
         themes: [
           {
             mytheme: {
-            
-   "primary": "#1C6758",
-            
-   "secondary": "#bfed63",
-            
-   "accent": "#e8e804",
-            
-   "neutral": "#1e1e2a",
-            
-   "base-100": "#ffffff",
-            
-   "info": "#4173c8",
-            
-   "success": "#5be6c6",
-            
-   "warning": "#ca9907",
-            
-   "error": "#fa6b98",
+            "primary": "#1C6758",
+                      
+            "secondary": "#bfed63",
+                      
+            "accent": "#e8e804",
+                      
+            "neutral": "#1e1e2a",
+                      
+            "base-100": "#ffffff",
+                      
+            "info": "#4173c8",
+                      
+            "success": "#5be6c6",
+                      
+            "warning": "#ca9907",
+                      
+            "error": "#fa6b98",
             },
           },
         ],

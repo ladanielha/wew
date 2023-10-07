@@ -11,7 +11,7 @@ const isTablewisata = (places) => {
                         <tr>
                             <th>Gambar</th>
                             <th>Nama Tempat</th>
-                            <th>Jam</th>
+                            <th>Alamat</th>
                             <th>Harga</th>
                             <th>Desc</th>
                             <th>Link</th>
@@ -34,9 +34,10 @@ const isTablewisata = (places) => {
                             <td>
                             {data.namatempat}
                                 <br />
-                                <span className="badge badge-sm">{data.alamat}</span>
+                                <span className="badge badge-sm">{data.jambuka} AM -{data.jamtutup} PM</span>
                             </td>
-                            <td>0{data.jambuka} AM -{data.jamtutup} PM</td>
+                            
+                            <td>{data.alamat}</td>
                             <td>{data.harga}</td>
                             <td>{data.desc}</td>
                             <td>{data.link}</td>

@@ -23,7 +23,7 @@ const Tutorial = ({ }) => {
             <div className="font-bold">Cara Menggunakan</div>
             <div className="mb-4 mt-2 md:hidden">
             </div>
-            <div className="mb-10">Pilih nilai perbandingan terhadap masing-masing kriteria </div>
+            <div className="mb-10">Terdapat 4 kriteria : Fasilitas, Palayanan, Ramah keluarga, Akomodasi</div>
           </div>
         </div>
 
@@ -39,15 +39,19 @@ const Tutorial = ({ }) => {
           </div>
 
           <div className="ml-10">
-            <div className="font-bold">Cara Pemilihan Nilai</div>
+            <div className="font-bold">Keterangan Nilai</div>
             <div className="mb-4 mt-2 md:hidden">
               <div className="font-bold">3</div>
             </div>
             <div className="">Nilai 1 memiliki arti kedua kriteria memiliki kepantingan yang sama  </div>
-            <div className="">Nilai 2 memiliki arti salah satu kriteria memiliki nilai sedikit lebih penting </div>
-            <div className="">Nilai 3 memiliki arti salah satu kriteria memiliki nilai cukup lebih penting </div>
-            <div className="">Nilai 4 memiliki arti salah satu kriteria memiliki nilai lebih penting </div>
-            <div className="mb-10">Nilai 5 memiliki arti salah satu kriteria memiliki nilai sangat lebih penting </div>
+            <div className="">Nilai 2 memiliki arti salah satu kriteria memiliki nilai sedikit lebih penting dibanding kriteria </div>
+            <div className="">Nilai 3 memiliki arti salah satu kriteria memiliki nilai sedikit lebih dari sedikit lebih penting dibanding kriteria lawan</div>
+            <div className="">Nilai 4 memiliki arti salah satu kriteria memiliki nilai lebih penting dibanding kriteria lawan</div>
+            <div className="">Nilai 5 memiliki arti salah satu kriteria memiliki nilai dua kali lebih penting dibanding kriteria lawan</div>
+            <div className="">Nilai 6 memiliki arti salah satu kriteria memiliki nilai antara 5 dan 7</div>
+            <div className="">Nilai 7 memiliki arti salah satu kriteria memiliki nilai sangat lebih penting dibanding kriteria lawan</div>
+            <div className="">Nilai 8 memiliki arti salah satu kriteria memiliki nilai antara 7 dan 9 </div>
+            <div className="mb-10">Nilai 9 memiliki arti salah satu kriteria memiliki nilai mutal lebih penting dibanding kriteria lawan</div>
 
           </div>
         </div>
@@ -67,12 +71,14 @@ const Tutorial = ({ }) => {
             <div className="font-bold">Hasil 3</div>
             <div className="mb-4 mt-2 md:hidden">
             </div>
-            <div className="">Untuk mendapatkan nilai yang kosisten dan valid masukan nilai kriteria yang di anggap paling penting dan memasukan angka 1 jika krieria tersebut tidak sesuai dengan keinginan kamu  </div>
-            <div className="mb-10">Bila nilai yang di masukan tidak konsisten maka masukan nilai kembali </div>
+            {/* <div className="">Untuk mendapatkan nilai yang kosisten dan valid masukan nilai kriteria yang di anggap paling penting dan memasukan angka 1 jika krieria tersebut tidak sesuai dengan keinginan kamu  </div> */}
+            <div className="mb-10">Jika nilai yang di masukan tidak konsisten , masukan nilai kembali </div>
           </div>
         </div>
       </div>
-    
+
+
+
         
         
     </>

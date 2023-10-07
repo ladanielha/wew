@@ -15,7 +15,6 @@ export default function Index(props) {
 
                 <div className="container py-12 max-w-7xl mx-auto sm:px-6 lg:px-56">
                     <div className="btn-group btn-group-vertical lg:btn-group-horizontal left-0">
-                            <Link href="#" className="btn btn-primary">Hello</Link>
                         </div>
 
                         {props.flash.message && (

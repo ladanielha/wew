@@ -16,11 +16,21 @@ class NilaialtController extends Controller
     public function index()
     {
         //get all nilaialt
-        $nilaialt= Nilaialt::get();
+        $datanilai = Nilaialt::select(
 
+            'nilaialt.wisata_id',
+            'rate_fasilitas',
+            'rate_pelayanan',
+            'rate_ramahkeluarga',
+            'rate_akomodasi',
+            'datawisata.namatempat'
+        )
+        ->join('datawisata', 'nilaialt.wisata_id', '=', 'datawisata.wisata_id')
+        ->get();
+        
         //return view
         return Inertia::render('Admin/Nilaialt/index',[ 
-            'nilaialts'=> $nilaialt]);
+            'nilaialts'=> $datanilai]);
     }
 
     /**
@@ -108,8 +118,8 @@ class NilaialtController extends Controller
     public function destroy(Request $request)
     {
         //deleta nilaialt
-        $nilaialt = Nilaialt::find($request->id);
-        Nilaialt::destroy($nilaialt->id);
+        $nilaialt = Nilaialt::find($request->nilaialt_id);
+        Nilaialt::destroy($nilaialt->nilaialt_id);
         return redirect()->route('admin.kriteria')->with('message', 'Kriteria Berhasil Dihapus!');
 
     }
