@@ -73,9 +73,19 @@ class NilaialtController extends Controller
      */
     public function edit(Nilaialt $nilaialt, Request $request)
     {
-        //dd($nilaialt);
+        $datanilai = Nilaialt::select(
+
+            'nilaialt.wisata_id',
+            'rate_fasilitas',
+            'rate_pelayanan',
+            'rate_ramahkeluarga',
+            'rate_akomodasi',
+            'datawisata.namatempat'
+        )
+        ->join('datawisata', 'nilaialt.wisata_id', '=', 'datawisata.wisata_id')
+        ->get();
         return Inertia::render('Admin/Nilaialt/edit',[ 
-            'nilaialt'=> $nilaialt->find($request->id)]);
+            'nilaialt'=> $datanilai->find($request->id)]);
     }
 
     /**
@@ -89,15 +99,14 @@ class NilaialtController extends Controller
     {
         //validasi 
        $request->validate([
-        'wisata_id'=> 'required', 
-        'rate_fasilitas'=>  ['required', 'integer' ],
-        'rate_pelayanan'=> ['required', 'integer' ],
-        'rate_ramahkeluarga'=> ['required', 'integer' ],
-        'rate_akomodasi'=> ['required', 'integer' ],
+        'rate_fasilitas'=>  ['required',  ],
+        'rate_pelayanan'=> ['required',  ],
+        'rate_ramahkeluarga'=> ['required',  ],
+        'rate_akomodasi'=> ['required',  ],
         ]);
         
         //update nialialt ke db
-        Nilaialt::where('nilai_alt', $request->nilaialt_id)->update([
+        Nilaialt::where('nilaialt_id', $request->nilaialt_id)->update([
             'rate_fasilitas'=> $request->r_fasilitas,
             'rate_pelayanan'=> $request->r_pelayanan,
             'rate_ramahkeluarga'=> $request->r_ramahkeluarga,
@@ -106,7 +115,7 @@ class NilaialtController extends Controller
         
 
         //redirect
-        return redirect()->route('admin.Nialialt')->with('message', 'nialialt Berhasil Disimpan!');
+        return redirect()->route('admin.nilaialt')->with('message', 'nialialt Berhasil Diupdate!');
     }
 
     /**

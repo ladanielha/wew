@@ -14,7 +14,6 @@ const isTablewisata = (places) => {
                             <th>Alamat</th>
                             <th>Harga</th>
                             <th>Desc</th>
-                            <th>Link</th>
                             <th>Aksi</th>
                             <th></th>
                         </tr>
@@ -40,7 +39,6 @@ const isTablewisata = (places) => {
                             <td>{data.alamat}</td>
                             <td>{data.harga}</td>
                             <td>{data.desc}</td>
-                            <td>{data.link}</td>
                             <th>
                                 <Link href={route('edit.wisata')} method="get" data={{wisata_id: data.wisata_id}}className="btn btn-outline btn-xs btn-warning">Edit</Link>
                                 <Link href={route('delete.wisata')} method="post" data={{wisata_id: data.wisata_id}}className="btn btn-outline btn-xs btn-error">Hapus</Link>                               

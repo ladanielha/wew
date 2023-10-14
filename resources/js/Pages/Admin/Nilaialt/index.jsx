@@ -4,7 +4,7 @@ import Navbaradmin from '@/Components/Navbaradmin';
 import { Head, Link } from '@inertiajs/react';
 
 export default function Index(props) {
-    console.log('cek ', props)
+    //console.log('cek ', props)
     return (
         <>
         

@@ -2,7 +2,7 @@ import { Link } from "@inertiajs/react"
 
 
 const isTablenilaialt = (nilaialts) => {
-            console.log("nihnilai",nilaialts)
+            //console.log("nihnilai",nilaialts)
         return (
             <div className="overflow-x-auto">
                             <table className="table">

@@ -33,7 +33,7 @@ class HomeController extends Controller
      */
     public function wisata()
     {
-        $places = new PlacesCollection(Places::paginate(15));
+        $places = new PlacesCollection(Places::paginate(9));
         return Inertia::render('Client/Wisata',[ 
             'places'=> $places]);
     }
@@ -98,7 +98,7 @@ class HomeController extends Controller
         ];
 
         //step 2: panggil function normalisasi nilai matrix 
-
+        $normalizedMatrix = $this->normalizeMatrixByColumnSum($inimatrixku);
         //step 3: panggil function hitung nilai pv
         $normalizedCriteriaPriorities = $this->calculateCriteriaPriorities($inimatrixku);
        
@@ -118,7 +118,8 @@ class HomeController extends Controller
         if($cr > 0.1){
             $temp="Nilai Perbandingan tidak konsisten ";
             
-            dd($temp,$cr);  
+            dd($temp,$cr,$normalizedMatrix);  
+            return redirect()->route('formrekomendasi')->with('message', 'Nilai Perbandingan tidak konsisten');
         }
         else {
             Nilaipv::where('nilaipv_id', 1)->update([

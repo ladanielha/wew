@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 
 export default function Edit(props, errors) {
+    const [wisata_id, setId] = useState(props.places.wisata_id);
     const [namatempat, setNamatempat] = useState(props.places.namatempat);
     const [jeniswisata, setJeniswisata] = useState(props.places.jeniswisata);
     const [alamat, setAlamat] = useState(props.places.alamat);
@@ -20,22 +21,24 @@ export default function Edit(props, errors) {
     //function "updatePost"
     const updateWisata = async (e) => {
         e.preventDefault();
-
-        router.post(`/wisata/update`, {
-            wisata_id: props.places.wisata_id,
-            namatempat: namatempat,
-            jeniswisata: jeniswisata,
-            alamat: alamat,
-            harga: harga,
-            jambuka: jambuka,
-            jamtutup: jamtutup,
-            desc: desc,
-            gambar: gambar,
-            link: link,
-        });
+        const formData = new FormData();
+        formData.append('wisata_id', wisata_id);
+        formData.append('namatempat', namatempat);
+        formData.append('jeniswisata', jeniswisata);
+        formData.append('alamat', alamat);
+        formData.append('harga', harga);
+        formData.append('jambuka', jambuka);
+        formData.append('jamtutup', jamtutup);
+        formData.append('desc', desc);
+        // Update the image if a new file is selected
+        if (gambar instanceof File) {
+            formData.append('gambar', gambar);
+        }
+        formData.append('link', link);
+        router.post('/wisata/update', formData);
     }
     console.log("cekdarihaledit", props)
-   
+
     return (
         <>
             <div className=" min-h-screen bg-slate-50">
@@ -53,10 +56,10 @@ export default function Edit(props, errors) {
                                 </div>
                                 <div className="card-body">
                                     <form onSubmit={updateWisata}>
-
+                                    <input type="hidden"  value={props.places.wisata_id} onChange={(e) => setId(e.target.value)} placeholder="Nama Wisata" />
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Nama Wisata</label>
-                                            <input type="text" className="form-control" defaultValue={props.places.namatempat} onChange={(e) => setNamatempat(e.target.value)} placeholder="Nama Wisata" />
+                                            <input type="text" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.namatempat} onChange={(e) => setNamatempat(e.target.value)} placeholder="Nama Wisata" />
                                         </div>
                                         {props.errors.namatempat && (
                                             <div className="alert alert-error">
@@ -67,7 +70,7 @@ export default function Edit(props, errors) {
                                         )}
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Jenis Wisata</label>
-                                            <input type="text" className="form-control" defaultValue={props.places.jeniswisata} onChange={(e) => setJeniswisata(e.target.value)} placeholder="Nama Wisata" />
+                                            <input type="text" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.jeniswisata} onChange={(e) => setJeniswisata(e.target.value)} placeholder="Nama Wisata" />
                                         </div>
                                         {props.errors.jeniswisata && (
                                             <div className="alert alert-error">
@@ -78,7 +81,7 @@ export default function Edit(props, errors) {
                                         )}
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Alamat</label>
-                                            <input className="form-control" defaultValue={props.places.alamat} onChange={(e) => setAlamat(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></input>
+                                            <input className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.alamat} onChange={(e) => setAlamat(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></input>
                                         </div>
                                         {props.errors.alamat && (
                                             <div className="alert alert-error">
@@ -88,7 +91,7 @@ export default function Edit(props, errors) {
                                         )}
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Harga</label>
-                                            <input type="number" className="form-control" defaultValue={props.places.harga} onChange={(e) => setHarga(e.target.value)}  />
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.harga} onChange={(e) => setHarga(e.target.value)} />
                                         </div>
                                         {props.errors.harga && (
                                             <div className="alert alert-error">
@@ -99,7 +102,7 @@ export default function Edit(props, errors) {
                                         )}
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Jam Buka</label>
-                                            <input type="number" className="form-control" defaultValue={props.places.jambuka} onChange={(e) => setJambuka(e.target.value)}  />
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.jambuka} onChange={(e) => setJambuka(e.target.value)} />
                                         </div>
                                         {props.errors.jambuka && (
                                             <div className="alert alert-error">
@@ -108,9 +111,9 @@ export default function Edit(props, errors) {
                                             </div>
 
                                         )}
-                                         <div className="mb-3">
+                                        <div className="mb-3">
                                             <label className="form-label fw-bold">Jam Tutup</label>
-                                            <input type="number" className="form-control" defaultValue={props.places.jamtutup} onChange={(e) => setJamtutup(e.target.value)}  />
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.jamtutup} onChange={(e) => setJamtutup(e.target.value)} />
                                         </div>
                                         {props.errors.jamtutup && (
                                             <div className="alert alert-error">
@@ -122,7 +125,7 @@ export default function Edit(props, errors) {
 
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Desc</label>
-                                            <textarea className="form-control" defaultValue={props.places.desc} onChange={(e) => setDesc(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></textarea>
+                                            <textarea className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.desc} onChange={(e) => setDesc(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></textarea>
                                         </div>
                                         {props.errors.desc && (
                                             <div className="alert alert-error">
@@ -130,12 +133,18 @@ export default function Edit(props, errors) {
                                                 <span>{props.errors.desc}</span>
                                             </div>
                                         )}
-                                       
-                                        
-                                        
+                                        <div className="mb-3">
+                                            <label className="form-label fw-bold">Gambar</label>
+                                            <input
+                                                type="file"
+                                                className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900"
+                                                onChange={(e) => setGambar(e.target.files[0])}
+                                            />
+                                        </div>
+
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Link Map</label>
-                                            <input className="form-control" defaultValue={props.places.link} onChange={(e) => setlink(e.target.value)} placeholder="Jl, Asd no 1" />
+                                            <input className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" defaultValue={props.places.link} onChange={(e) => setLink(e.target.value)} placeholder="Jl, Asd no 1" />
                                         </div>
                                         {props.errors.link && (
                                             <div className="alert alert-error">
@@ -144,7 +153,7 @@ export default function Edit(props, errors) {
                                             </div>
                                         )}
 
-                                        
+
 
                                         <div>
                                             <button type="submit" className="btn btn-md btn-success me-2"><i className="fa fa-save"></i> Simpan</button>

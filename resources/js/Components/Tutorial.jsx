@@ -51,7 +51,7 @@ const Tutorial = ({ }) => {
             <div className="">Nilai 6 memiliki arti salah satu kriteria memiliki nilai antara 5 dan 7</div>
             <div className="">Nilai 7 memiliki arti salah satu kriteria memiliki nilai sangat lebih penting dibanding kriteria lawan</div>
             <div className="">Nilai 8 memiliki arti salah satu kriteria memiliki nilai antara 7 dan 9 </div>
-            <div className="mb-10">Nilai 9 memiliki arti salah satu kriteria memiliki nilai mutal lebih penting dibanding kriteria lawan</div>
+            <div className="mb-10">Nilai 9 memiliki arti salah satu kriteria memiliki nilai mutlak lebih penting dibanding kriteria lawan</div>
 
           </div>
         </div>

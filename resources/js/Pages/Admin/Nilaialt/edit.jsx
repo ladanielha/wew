@@ -7,24 +7,29 @@ import { useState } from 'react';
 
 
 export default function Edit(props, errors) {
-    const [wisata_id, setNamatempat] = useState(props.places.namatempat);
-    const [alamat, setAlamat] = useState(props.places.alamat);
-    const [desc, setDesc] = useState(props.places.desc);
+    console.log('halaman edit nilai', props)
+    const [wisata, setNamatempat] = useState(props.nilaialt.namatempat);
+    const [rate_fasilitas, setRf] = useState(props.nilaialt.rate_fasilitas);
+    const [rate_pelayanan, setRp] = useState(props.nilaialt.rate_pelayanan);
+    const [rate_ramahkeluarga, setRr] = useState(props.nilaialt.rate_ramahkeluarga);
+    const [rate_akomodasi, setRa] = useState(props.nilaialt.rate_akomodasi);
 
 
     //function "updatePost"
     const updatenilai = async (e) => {
         e.preventDefault();
 
-        router.post(`/wisata/update`, {
-            id: props.places.id,
-            namatempat: namatempat,
-            alamat: alamat,
-            desc: desc,
+        router.post(`/nilaialt/update`, {
+            nialialt_id: props.nilaialt.wisata_id,
+            wisata_id: props.nilaialt.wisata_id,
+            rate_fasilitas: rate_fasilitas,
+            rate_pelayanan: rate_pelayanan,
+            rate_ramahkeluarga: rate_ramahkeluarga,
+            rate_akomodasi: rate_akomodasi
         });
     }
     console.log("cekdarihaledit", props)
-   
+
     return (
         <>
             <div className=" min-h-screen bg-slate-50">
@@ -45,42 +50,63 @@ export default function Edit(props, errors) {
 
                                         <div className="mb-3">
                                             <label className="form-label fw-bold">Nama Wisata</label>
-                                            <input type="text" className="form-control" defaultValue={props.places.namatempat} onChange={(e) => setNamatempat(e.target.value)} placeholder="Nama Wisata" />
+                                            <input disabled type="text" className="disabled form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-red-900" value={props.nilaialt.namatempat} onChange={(e) => setNamatempat(e.target.value)} />
                                         </div>
-                                        {props.errors.namatempat && (
-                                            <div className="alert alert-error">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                                <span>{props.errors.namatempat}</span>
-                                            </div>
-
-                                        )}
 
                                         <div className="mb-3">
-                                            <label className="form-label fw-bold">Alamat</label>
-                                            <textarea className="form-control" defaultValue={props.places.alamat} onChange={(e) => setAlamat(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></textarea>
+                                            <label className="form-label fw-bold">Rate Fasilitas</label>
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" 
+                                            defaultValue={props.nilaialt.rate_fasilitas} onChange={(e) => setRf(e.target.value)} placeholder="Jl, Asd no 1" />
                                         </div>
                                         {props.errors.alamat && (
                                             <div className="alert alert-error">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                                <span>{props.errors.alamat}</span>
+                                                <span>{props.errors.rate_fasilitas}</span>
                                             </div>
                                         )}
 
                                         <div className="mb-3">
-                                            <label className="form-label fw-bold">Desc</label>
-                                            <textarea className="form-control" defaultValue={props.places.desc} onChange={(e) => setDesc(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></textarea>
+                                            <label className="form-label fw-bold">Rate Pelayanan</label>
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" 
+                                            defaultValue={props.nilaialt.rate_pelayanan} onChange={(e) => setRp(e.target.value)} placeholder="Jl, Asd no 1" />
+                                        </div>
+                                        {props.errors.alamat && (
+                                            <div className="alert alert-error">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                <span>{props.errors.rate_pelayanan}</span>
+                                            </div>
+                                        )}
+
+                                        <div className="mb-3">
+                                            <label className="form-label fw-bold">Rate Ramah Keluarga</label>
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" 
+                                            defaultValue={props.nilaialt.rate_ramahkeluarga} onChange={(e) => setRr(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></input>
                                         </div>
                                         {props.errors.desc && (
                                             <div className="alert alert-error">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                                <span>{props.errors.desc}</span>
+                                                <span>{props.errors.rate_ramahkeluarga}</span>
                                             </div>
                                         )}
 
+                                        <div className="mb-3">
+                                            <label className="form-label fw-bold">Rate Akomodasi</label>
+                                            <input type="number" className="form-control mt-2 flex h-12 w-full items-center justify-center rounded-xl border bg-white/0 p-3 text-sm outline-none border-gray-900" 
+                                            defaultValue={props.nilaialt.rate_ramahkeluarga} onChange={(e) => setRr(e.target.value)} placeholder="Jl, Asd no 1" rows={4}></input>
+                                        </div>
+                                        {props.errors.desc && (
+                                            <div className="alert alert-error">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                <span>{props.errors.rate_ramahkeluarga}</span>
+                                            </div>
+                                        )}
+
+                                       
                                         <div>
-                                            <button type="submit" className="btn btn-md btn-success me-2"><i className="fa fa-save"></i> Simpan</button>
+                                            <button type="submit" className="btn btn-md btn-success me-2 justify-center"><i className="fa fa-save"></i> Simpan</button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

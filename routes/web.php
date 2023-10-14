@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
      //crud bobot nilai wisata
      Route::get('/listnilaialt', [nilaialtController::class,'index'])->name('admin.nilaialt');
      Route::get('/nilaialt/edit', [nilaialtController::class, 'edit'])->name('edit.nilaialt');
-     Route::post('/nilaialt/update', [nilaialtController::class, 'update'])->name('update.nilaialt');
+     Route::post('/nilaialt/update/{wisata_id}', [nilaialtController::class, 'update'])->name('update.nilaialt');
      Route::post('/nilaialt/delete', [nilaialtController::class, 'destroy'])->name('delete.nilaialt');
 
 });
